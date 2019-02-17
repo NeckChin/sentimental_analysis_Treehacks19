@@ -21,8 +21,7 @@ colors = {
 	'background': '#111111',
 	'text' : '#7FDBFF'
 }
-#
-CONSTANTS
+#CONSTANTS
 TINTERVAL = 1
 KEY = 'ecbdb7db95d440b09e1457215ecd547f'  # Replace with a valid Subscription Key here.
 
@@ -105,4 +104,5 @@ while True:
 		time.sleep(TINTERVAL)
 		os.remove("opencv.png")
 	df = pandas.DataFrame(list1, columns = ['time', 'sadness', 'neutral', 'contempt', 'disgust', 'anger', 'surprise', 'fear', 'happiness'])
+	df.to_csv("dfoutput.csv", sep=",", index = False)
 	render_graph();
