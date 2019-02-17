@@ -11,7 +11,16 @@ import dash
 import dash_core_components as dcc
 import dash_html_components as html
 
+
+#DASH APP LAYOUT
+__name__ = '__main__'
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
+app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
+
+colors = {
+	'background': '#111111',
+	'text' : '#7FDBFF'
+}
 #
 CONSTANTS
 TINTERVAL = 1
@@ -47,11 +56,53 @@ def face_detect(img_url):
 		list1.append(row)
 	except IndexError:
 		list1.append([datetime.datetime.utcnow().strftime('%B %d %Y - %H:%M:%S'), -1, -1, -1, -1, -1, -1, -1, -1] )
+	
+def render_graph():
+	#graph rendering
+	app.layout = html.Div(style={'backgroundColor': colors['background']}, children = [
+		html.H1(
+			chidren='See Your Feelings',
+			style = {
+			'textAlign': 'center',
+			'color': colors['text']
+			}
+		),
+
+		html.Div(children='''
+			Quantify the unquantifiable in real time.
+			''', style = {
+			'textAlign': 'center',
+			'color': colors['text']
+		}),
+
+		dcc.Graph(
+			id='example-graph',
+			figure={
+				'data': [
+				{'x': [1, 2, 3], 'y': [4, 1, 2], 'type': 'bar', 'name': 'Happpy'},
+				{'x': [1, 2, 3], 'y': [2, 4, 5], 'type': 'bar', 'name': 'Sad'}
+			],
+			'layout': {
+				'plot_bgcolor': colors['background'],
+				'paper_bgcolor': colors['background'],
+				'font': {
+				'color': colors['text']
+				},
+				'title': 'Your Emotions, Visualized'
+			}
+			}
+		)
+	])
+
+	if __name__ == '__main__':
+		app.run_server(debug=True)
 
 #main
 while True:
-	take_pic()
-	face_detect("opencv.png")
-	time.sleep(TINTERVAL)
-	os.remove("opencv.png")
+	for x in range(0,5):
+		take_pic()
+		face_detect("opencv.png")
+		time.sleep(TINTERVAL)
+		os.remove("opencv.png")
 	df = pandas.DataFrame(list1, columns = ['time', 'sadness', 'neutral', 'contempt', 'disgust', 'anger', 'surprise', 'fear', 'happiness'])
+	render_graph();
