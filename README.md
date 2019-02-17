@@ -2,7 +2,7 @@
 
 Sentimental Analysis is a Python program made for Treehacks 2019 by Nick Chen, Elaine Nguyen, Jenna Lau, and Julia Cordero. The base libraries we use include Microsoft's Cognitive Face API for Azure, cv2, numpy, pandas, and Dash by Plotly.
 
-For more information on Sentimental Analysis, visit our website at elainen1.wixsite.com/en/emotion
+For more information on Sentimental Analysis, visit our website at https://elainen1.wixsite.com/emotion
 
 ## Getting Started
 
