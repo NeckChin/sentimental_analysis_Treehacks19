@@ -15,20 +15,20 @@ Cognitive Face
 NOTE: need a subscription key through azure
 
 OPENCV (cv2)
-	pip3 install opencv-python (might need --user flag)
+* pip3 install opencv-python (might need --user flag)
 
 NUMPY
-	pip3 install numpy
+* pip3 install numpy
 
 PANDAS
-	pip3 install pandas
+* pip3 install pandas
 
 Dash by Plotly
-	pip install dash==0.36.0  # The core dash backend
-	pip install dash-html-components==0.13.5  # HTML components
-	pip install dash-core-components==0.43.0  # Supercharged components
-	pip install dash-table==3.1.11  # Interactive DataTable component (new!)
-	pip install dash-daq==0.1.0  # DAQ components (newly open-sourced!)
+* pip install dash==0.36.0  # The core dash backend
+* pip install dash-html-components==0.13.5  # HTML components
+* pip install dash-core-components==0.43.0  # Supercharged components
+* pip install dash-table==3.1.11  # Interactive DataTable component (new!)
+* pip install dash-daq==0.1.0  # DAQ components (newly open-sourced!)
 
 ## Before Deployment
 
